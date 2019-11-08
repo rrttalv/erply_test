@@ -1,1 +1,14 @@
-<p>navbar works!</p>
+<nav class="navbar">
+    <a class="navbar-image-link" href="https://www.ee.erply.com">
+        <img id="navbar-image" src="https://erply.com/wp-content/themes/Erply3.5/img/Erply-aritarkvara.png">
+    </a>
+    <div class="navbar-content">
+        <ul class="navbar-unordered">
+            <li *ngFor="let item of linkList" class="navbar-link">
+                <a href="{{item.link}}">
+                    {{item.name}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
