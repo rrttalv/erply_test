@@ -1,17 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
-body html{
+html, body, app-root{
     padding: 0;
     margin: 0;
     overflow-x: hidden;
-    font-family: 'Roboto Condensed';
 }
 
 body{
+    font-family: 'Roboto Condensed';
     background: rgb(48, 56, 65);
+    color: rgb(243, 247, 255);
 }
 
+
+/* Bootstrap style CSS classes */
 .col-7{
     width: 70%;
+    max-width: 70%;
 }
 
 .margin-middle{
@@ -20,4 +24,14 @@ body{
 
 .center{
     text-align: center;
+}
+
+/*CSS screen size optimization*/
+
+@media screen and (min-width: 900px){
+
+}
+
+@media screen and (min-width: 700px){
+    
 }
