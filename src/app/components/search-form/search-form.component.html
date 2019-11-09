@@ -1,1 +1,9 @@
-<p>search-form works!</p>
+<div>
+    <form [formGroup]="queryForm">
+        <div>
+            <input type="text" formControlName="companyVAT" placeholder="VAT Number">
+            <i class="fas fa-search"></i>
+        </div>
+        <input type="submit" value="Search">
+    </form>
+</div>
