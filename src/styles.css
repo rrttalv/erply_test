@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+body html{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Roboto Condensed';
+}
+
+body{
+    background: rgb(48, 56, 65);
+}
+
+.col-7{
+    width: 70%;
+}
+
+.margin-middle{
+    margin: 0 auto;
+}
+
+.center{
+    text-align: center;
+}
