@@ -1,12 +1,10 @@
-<div>
-    <form [formGroup]="queryForm" (ngSubmit)="submitQuery()">
+<div id="form-wrapper">
+    <form [formGroup]="queryForm" (ngSubmit)="submitQuery()" #errorDiv>
         <div class="form-inputs">
             <input id="main-input" type="text" autocomplete="off" formControlName="companyVAT" placeholder="VAT Number">
             <div id="search-btn" (click)="submitQuery()">
                 <i class="fas fa-search"></i>
             </div>
-        </div>
-        <div #errorDiv>
         </div>
         <input class="none" type="submit" value="Search">
     </form>

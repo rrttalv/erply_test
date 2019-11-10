@@ -10,8 +10,8 @@ import { EventEmitter } from 'events';
 })
 export class SearchFormComponent implements OnInit {
   @Output() search = new EventEmitter();
+  @ViewChild('errorDiv', { static: true, read: ViewContainerRef }) viewCont: ViewContainerRef;
   errorDisplay: ComponentRef<ErrorDisplayComponent>;
-  @ViewChild('errorDiv', { static: false }) errorContainer: ViewContainerRef;
   errorMessage: String;
   queryForm = new FormGroup({
     companyVAT: new FormControl('', [Validators.pattern("^[a-zA-Z]{2}.+$"), Validators.minLength(8), Validators.maxLength(14)])
@@ -28,10 +28,9 @@ export class SearchFormComponent implements OnInit {
   errorList =
     { pattern: "Company VAT number has to start with country code", 
       minlength: "VAT number has to be at least 8 characters long", 
-      maxlength: "VAT number cannot be longer then 14 characters" }
+      maxlength: "VAT number cannot be longer than 14 characters" }
 
   submitQuery(){
-    console.log(this.queryForm)
     if(this.queryForm.valid){
       this.search.emit(this.queryForm.value)
     }else{
@@ -40,10 +39,16 @@ export class SearchFormComponent implements OnInit {
   }
 
   displayError(){
+    if(this.errorDisplay){
+      this.errorDisplay.destroy()
+    }
     const error = this.companyVAT.errors;
     if(error !== null){
       this.errorMessage = this.errorList[Object.keys(error)[0]];
     }
+    const factory = this.factory.resolveComponentFactory(ErrorDisplayComponent);
+    this.errorDisplay = this.viewCont.createComponent(factory);
+    this.errorDisplay.instance.errorMessage = this.errorMessage;
   }
 
 }

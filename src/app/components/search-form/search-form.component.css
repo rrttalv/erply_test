@@ -16,6 +16,10 @@ form{
     align-items: center;
 }
 
+#form-wrapper{
+    position: relative;
+}
+
 .fa-search{
     display: block;
     font-size: 1rem;

@@ -20,6 +20,11 @@ input[type="text"]::placeholder{
     color: rgb(243, 247, 255);
 }
 
+.error-container{
+    color: rgb(243, 247, 255);
+    background: rgba(244, 67, 54, 1);
+}
+
 
 /* Bootstrap style CSS classes */
 .col-5{
