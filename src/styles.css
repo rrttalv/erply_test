@@ -27,7 +27,9 @@ input[type="text"]::placeholder{
     max-width: 50%;
 }
 
-
+.none{
+    display: none;
+}
 
 .col-7{
     width: 70%;
