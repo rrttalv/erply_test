@@ -13,4 +13,13 @@ export class SearchPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  submitSearch(form){
+    var value = form.companyVAT;
+    this.search.getCompanyInfo(value).subscribe( searchData => {
+      if(searchData){
+        console.log(searchData)
+      }
+    })
+  }
+
 }

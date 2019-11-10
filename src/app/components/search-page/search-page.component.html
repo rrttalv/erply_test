@@ -10,7 +10,10 @@
     </div>
     <div class="margin-middle col-7">
         <div class="frame">
-            <app-search-form></app-search-form>
+            <app-search-form (search)="submitSearch($event)"></app-search-form>
         </div>
+    </div>
+    <div class="margin-middle col-7 margin-top">
+        <app-search-display></app-search-display>
     </div>
 </div>

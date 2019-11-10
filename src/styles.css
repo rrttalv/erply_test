@@ -54,6 +54,10 @@ input[type="text"]::placeholder{
     text-align: center;
 }
 
+.margin-top{
+    margin-top: 1rem;
+}
+
 /*CSS screen size optimization*/
 
 @media screen and (min-width: 900px){

@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, ComponentRef, ComponentFactoryResolver, ViewContainerRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ErrorDisplayComponent } from '../error-display/error-display.component'
-import { EventEmitter } from 'events';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-search-form',
