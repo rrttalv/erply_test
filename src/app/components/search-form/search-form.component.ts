@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Output, ComponentRef, ComponentFactoryResolver, ViewContainerRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ErrorDisplayComponent } from '../error-display/error-display.component'
 import { EventEmitter } from 'events';
 
 @Component({
@@ -9,20 +10,15 @@ import { EventEmitter } from 'events';
 })
 export class SearchFormComponent implements OnInit {
   @Output() search = new EventEmitter();
+  errorDisplay: ComponentRef<ErrorDisplayComponent>;
+  @ViewChild('errorDiv', { static: false }) errorContainer: ViewContainerRef;
+  errorMessage: String;
   queryForm = new FormGroup({
     companyVAT: new FormControl('', [Validators.pattern("^[a-zA-Z]{2}.+$"), Validators.minLength(8), Validators.maxLength(14)])
   })
-  errorMessage = "";
-  constructor() { }
+  constructor(private factory: ComponentFactoryResolver) { }
 
   ngOnInit() {
-    this.companyVAT.valueChanges.subscribe(() => {
-      const error = this.companyVAT.errors;
-      if(error !== null){
-        this.errorMessage = this.errorList[Object.keys(error)[0]];
-        console.log(this.errorMessage)
-      }
-    })
   }
 
   get companyVAT(){
@@ -47,7 +43,6 @@ export class SearchFormComponent implements OnInit {
     const error = this.companyVAT.errors;
     if(error !== null){
       this.errorMessage = this.errorList[Object.keys(error)[0]];
-      console.log(this.errorMessage)
     }
   }
 

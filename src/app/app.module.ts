@@ -12,6 +12,9 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { SearchDisplayComponent } from './components/search-display/search-display.component';
+import { ErrorDisplayComponent } from './components/error-display/error-display.component';
+
+import { GetDataService } from './services/get-data.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { SearchDisplayComponent } from './components/search-display/search-displ
     SearchFormComponent,
     NavbarComponent,
     SearchResultComponent,
-    SearchDisplayComponent
+    SearchDisplayComponent,
+    ErrorDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import { SearchDisplayComponent } from './components/search-display/search-displ
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [GetDataService],
+  entryComponents: [ErrorDisplayComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
