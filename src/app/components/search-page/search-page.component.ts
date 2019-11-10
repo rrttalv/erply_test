@@ -7,7 +7,7 @@ import { GetDataService } from '../../services/get-data.service';
   styleUrls: ['./search-page.component.css']
 })
 export class SearchPageComponent implements OnInit {
-
+  searchResult: Object;
   constructor(private search: GetDataService) { }
 
   ngOnInit() {
@@ -17,7 +17,8 @@ export class SearchPageComponent implements OnInit {
     var value = form.companyVAT;
     this.search.getCompanyInfo(value).subscribe( searchData => {
       if(searchData){
-        console.log(searchData)
+        this.searchResult = searchData;
+        console.log(this.searchResult)
       }
     })
   }
