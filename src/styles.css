@@ -11,11 +11,32 @@ body{
     color: rgb(243, 247, 255);
 }
 
+input[type="text"]{
+    color: rgb(243, 247, 255);
+    background: #36404a;
+}
+
+input[type="text"]::placeholder{
+    color: rgb(243, 247, 255);
+}
+
 
 /* Bootstrap style CSS classes */
+.col-5{
+    width: 50%;
+    max-width: 50%;
+}
+
+
+
 .col-7{
     width: 70%;
     max-width: 70%;
+}
+
+.col-8{
+    width: 80%;
+    max-width: 80%;
 }
 
 .margin-middle{
