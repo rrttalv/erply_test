@@ -32,6 +32,9 @@ export class SearchFormComponent implements OnInit {
 
   submitQuery(){
     if(this.queryForm.valid){
+      if(this.errorDisplay){
+        this.destroyError();
+      }
       this.search.emit(this.queryForm.value)
     }else{
       this.displayError();
@@ -49,6 +52,10 @@ export class SearchFormComponent implements OnInit {
     const factory = this.factory.resolveComponentFactory(ErrorDisplayComponent);
     this.errorDisplay = this.viewCont.createComponent(factory);
     this.errorDisplay.instance.errorMessage = this.errorMessage;
+  }
+
+  destroyError(){
+    this.errorDisplay.destroy()
   }
 
 }
