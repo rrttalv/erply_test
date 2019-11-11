@@ -4,10 +4,7 @@
     background: #36404a;
 }
 
-.archive-row{
-    display: flex;
-    justify-content: flex-start;
-}
+/*
 
 :host ::ng-deep .archive-row .panel{
     width: 90%;
@@ -22,3 +19,5 @@
     margin-top: 0;
     margin-bottom: 1rem;
 }
+
+*/

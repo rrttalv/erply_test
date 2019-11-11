@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SearchDisplayComponent implements OnInit {
   @Input() companyName: String;
   @Input() vatNumber: Number;
+  @Input() countryCode: String;
   @Input() address: String;
   @Input() requestDate: Date;
   @Input() isValid: Boolean;

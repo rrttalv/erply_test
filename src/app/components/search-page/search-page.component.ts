@@ -1,5 +1,6 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChild, ComponentRef } from '@angular/core';
 import { SearchDisplayComponent } from '../search-display/search-display.component';
+import { ArchivedSearchDisplayComponent } from '../archived-search-display/archived-search-display.component';
 import { GetDataService } from '../../services/get-data.service';
 
 @Component({
@@ -40,18 +41,25 @@ export class SearchPageComponent implements OnInit {
     }
     const factory = this.factory.resolveComponentFactory(SearchDisplayComponent);
     this.resultComponent = this.resultCont.createComponent(factory);
-    this.resultComponent.instance.isValid = this.searchResult['Valid'];
-    this.resultComponent.instance.address = this.searchResult['Address'];
-    this.resultComponent.instance.companyName = this.searchResult['Name'];
-    this.resultComponent.instance.vatNumber = this.searchResult['VATNumber'];
+    if(this.searchResult['Valid']){
+      this.resultComponent.instance.isValid = this.searchResult['Valid'];
+      this.resultComponent.instance.address = this.searchResult['Address'];
+      this.resultComponent.instance.companyName = this.searchResult['Name'];
+      this.resultComponent.instance.vatNumber = this.searchResult['VATNumber'];
+      this.resultComponent.instance.countryCode = this.searchResult['CountryCode'];
+      this.resultComponent.instance.requestDate = new Date();
+    }else{
+      this.resultComponent.instance.isValid = this.searchResult['Valid'];
+    }
+
   }
 
 
   /* Create a component that displays the archived results and inject into template. Does not allow the results to repeat.*/
   archiveSearch(result){
     var previousSearches = this.previousResults.map(value => value['VATNumber']);
-    var currentResult = this.searchResult['VATNumber'];
-    if(!previousSearches.includes(currentResult)){
+    var currentResult = this.searchResult;
+    if(!previousSearches.includes(currentResult['VATNumber'])){
       this.previousResults.push(result);
       const factory = this.factory.resolveComponentFactory(SearchDisplayComponent);
       const component = this.historyCont.createComponent(factory, 0);
@@ -59,6 +67,8 @@ export class SearchPageComponent implements OnInit {
       component.instance.address = result['Address'];
       component.instance.companyName = result['Name'];
       component.instance.vatNumber = result['VATNumber'];
+      component.instance.requestDate = this.resultComponent.instance.requestDate;
+      component.instance.countryCode = this.searchResult['CountryCode']
     }
   }
 

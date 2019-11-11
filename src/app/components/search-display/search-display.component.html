@@ -5,13 +5,10 @@
 
     <div class="panel-body">
         <div class="request-info">
-            {{'Date requested -' + requestDate}}
+            {{'Request date  - ' + requestDate.toLocaleDateString()}}
         </div>
         <div class="info">
-            <span>{{vatNumber}}</span>
-        </div>
-        <div class="info">
-            <span>{{vatNumber}}</span>
+            <span>{{countryCode + vatNumber}}</span>
         </div>
         <div class="info">
             <span>{{address}}</span>
@@ -20,5 +17,14 @@
 
     <div class="panel-footer">
         <span>View company on google maps</span>
+    </div>
+</section>
+<section *ngIf="!isValid">
+    <div class="panel-body">
+        <div class="request-info">
+        </div>
+        <div class="info">
+            <span>Invalid request</span>
+        </div>
     </div>
 </section>
