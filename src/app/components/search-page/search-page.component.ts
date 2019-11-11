@@ -20,9 +20,11 @@ export class SearchPageComponent implements OnInit {
 
   submitSearch(form){
     var value = form.companyVAT;
+    /* Check if the search result component is already in use */
     if(this.searchResult && this.searchResult['Valid']){
-      this.archiveSearch(value, this.searchResult)
+      this.archiveSearch(this.searchResult);
     }
+    /* Get data from API */
     this.search.getCompanyInfo(value).subscribe( searchData => {
       if(searchData){
         this.searchResult = searchData;
@@ -31,6 +33,7 @@ export class SearchPageComponent implements OnInit {
     })
   };
 
+  /* Create a component that displays the result and inject into template */
   displaySearch(){
     if(this.resultComponent){
       this.resultComponent.destroy();
@@ -43,13 +46,15 @@ export class SearchPageComponent implements OnInit {
     this.resultComponent.instance.vatNumber = this.searchResult['VATNumber'];
   }
 
-  archiveSearch(query, result){
-    let vatValues = this.previousResults.map(res => res['VATNumber']);
-    if(!vatValues.includes(query.substring(2))){
+
+  /* Create a component that displays the archived results and inject into template. Does not allow the results to repeat.*/
+  archiveSearch(result){
+    var previousSearches = this.previousResults.map(value => value['VATNumber']);
+    var currentResult = this.searchResult['VATNumber'];
+    if(!previousSearches.includes(currentResult)){
       this.previousResults.push(result);
-      console.log(result)
       const factory = this.factory.resolveComponentFactory(SearchDisplayComponent);
-      const component = this.historyCont.createComponent(factory);
+      const component = this.historyCont.createComponent(factory, 0);
       component.instance.isValid = result['Valid'];
       component.instance.address = result['Address'];
       component.instance.companyName = result['Name'];

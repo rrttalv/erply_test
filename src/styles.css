@@ -27,28 +27,9 @@ input[type="text"]::placeholder{
 
 
 /* Bootstrap style CSS classes */
-.col-5{
-    width: 50%;
-    max-width: 50%;
-}
 
 .none{
     display: none;
-}
-
-.col-6{
-    width: 60%;
-    max-width: 60%;
-}
-
-.col-7{
-    width: 70%;
-    max-width: 70%;
-}
-
-.col-8{
-    width: 80%;
-    max-width: 80%;
 }
 
 .margin-middle{

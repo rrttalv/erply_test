@@ -15,6 +15,7 @@ import { SearchDisplayComponent } from './components/search-display/search-displ
 import { ErrorDisplayComponent } from './components/error-display/error-display.component';
 
 import { GetDataService } from './services/get-data.service';
+import { ArchivedSearchDisplayComponent } from './components/archived-search-display/archived-search-display.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GetDataService } from './services/get-data.service';
     NavbarComponent,
     SearchResultComponent,
     SearchDisplayComponent,
-    ErrorDisplayComponent
+    ErrorDisplayComponent,
+    ArchivedSearchDisplayComponent
   ],
   imports: [
     BrowserModule,

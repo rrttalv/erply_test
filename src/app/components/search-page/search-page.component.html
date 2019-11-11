@@ -8,29 +8,25 @@
             Intro text intro trext intro text intro text intro text
         </p>
     </div>
-    <div class="margin-middle col-7">
+    <div class="margin-middle col-12">
         <div class="frame">
             <app-search-form (search)="submitSearch($event)"></app-search-form>
         </div>
     </div>
 
-    <section class="margin-middle col-7 margin-top">
+    <section class="margin-middle col-md-10 margin-top">
 
-        <div class="section-body" #searchResult>
-
-        </div>
+        <div #searchResult></div>
             
     </section>
 
-    <section class="margin-middle col-7 margin-top">
+    <section class="margin-middle col-12 margin-top">
 
         <div class="section-head">
             <h3>Previous searches</h3>
         </div>
-
-        <div class="seaction-body" #searchHistory>
-
+        <div class="archive-row">
+            <div #searchHistory></div>
         </div>
-
     </section>
 </div>
