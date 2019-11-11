@@ -44,6 +44,32 @@ input[type="text"]::placeholder{
     margin-top: 1rem;
 }
 
+/* Search result display CSS */
+.panel{
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.075);
+    background: #36404a;
+}
+
+.panel-header, .panel-footer{
+    background: #4e5b67;
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.panel-header h3{
+    margin: 0;
+}
+
+.panel-body{
+    padding: 1rem 1rem;
+}
+
+.request-info{
+    float: right;
+}
+
+
 /*CSS screen size optimization*/
 
 @media screen and (min-width: 900px){

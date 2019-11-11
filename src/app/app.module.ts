@@ -13,9 +13,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { SearchDisplayComponent } from './components/search-display/search-display.component';
 import { ErrorDisplayComponent } from './components/error-display/error-display.component';
+import { ArchivedSearchDisplayComponent } from './components/archived-search-display/archived-search-display.component';
 
 import { GetDataService } from './services/get-data.service';
-import { ArchivedSearchDisplayComponent } from './components/archived-search-display/archived-search-display.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { ArchivedSearchDisplayComponent } from './components/archived-search-dis
     HttpClientModule
   ],
   providers: [GetDataService],
-  entryComponents: [ErrorDisplayComponent, SearchDisplayComponent],
+  entryComponents: [ErrorDisplayComponent, SearchDisplayComponent, ArchivedSearchDisplayComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

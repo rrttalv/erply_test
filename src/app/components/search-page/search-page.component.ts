@@ -61,9 +61,9 @@ export class SearchPageComponent implements OnInit {
     var currentResult = this.searchResult;
     if(!previousSearches.includes(currentResult['VATNumber'])){
       this.previousResults.push(result);
-      const factory = this.factory.resolveComponentFactory(SearchDisplayComponent);
+      const factory = this.factory.resolveComponentFactory(ArchivedSearchDisplayComponent);
       const component = this.historyCont.createComponent(factory, 0);
-      component.instance.isValid = result['Valid'];
+      component.location.nativeElement.classList.add('col-lg-6', 'margin-top');
       component.instance.address = result['Address'];
       component.instance.companyName = result['Name'];
       component.instance.vatNumber = result['VATNumber'];
