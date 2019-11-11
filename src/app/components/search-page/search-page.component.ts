@@ -11,6 +11,7 @@ import { GetDataService } from '../../services/get-data.service';
 export class SearchPageComponent implements OnInit {
   searchResult: Object;
   previousResults = [];
+  loading: Boolean;
   resultComponent: ComponentRef<SearchDisplayComponent>;
   @ViewChild('searchResult', { static: true, read: ViewContainerRef }) resultCont: ViewContainerRef;
   @ViewChild('searchHistory', { static: true, read: ViewContainerRef }) historyCont: ViewContainerRef;
@@ -20,6 +21,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   submitSearch(form){
+    this.loading = true;
     var value = form.companyVAT;
     /* Check if the search result component is already in use */
     if(this.searchResult && this.searchResult['Valid']){
@@ -28,6 +30,7 @@ export class SearchPageComponent implements OnInit {
     /* Get data from API */
     this.search.getCompanyInfo(value).subscribe( searchData => {
       if(searchData){
+        this.loading = false;
         this.searchResult = searchData;
         this.displaySearch()
       }
@@ -58,8 +61,7 @@ export class SearchPageComponent implements OnInit {
   /* Create a component that displays the archived results and inject into template. Does not allow the results to repeat.*/
   archiveSearch(result){
     var previousSearches = this.previousResults.map(value => value['VATNumber']);
-    var currentResult = this.searchResult;
-    if(!previousSearches.includes(currentResult['VATNumber'])){
+    if(!previousSearches.includes(result['VATNumber'])){
       this.previousResults.push(result);
       const factory = this.factory.resolveComponentFactory(ArchivedSearchDisplayComponent);
       const component = this.historyCont.createComponent(factory, 0);

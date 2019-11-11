@@ -11,6 +11,10 @@ body{
     color: rgb(243, 247, 255);
 }
 
+#main-container{
+    padding-top: 5rem;
+}
+
 input[type="text"]{
     color: rgb(243, 247, 255);
     background: #36404a;

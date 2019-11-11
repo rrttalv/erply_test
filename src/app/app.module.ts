@@ -9,24 +9,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { SearchDisplayComponent } from './components/search-display/search-display.component';
 import { ErrorDisplayComponent } from './components/error-display/error-display.component';
 import { ArchivedSearchDisplayComponent } from './components/archived-search-display/archived-search-display.component';
 
 import { GetDataService } from './services/get-data.service';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchPageComponent,
     SearchFormComponent,
-    NavbarComponent,
     SearchResultComponent,
     SearchDisplayComponent,
     ErrorDisplayComponent,
-    ArchivedSearchDisplayComponent
+    ArchivedSearchDisplayComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
