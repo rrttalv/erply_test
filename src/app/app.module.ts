@@ -35,7 +35,7 @@ import { GetDataService } from './services/get-data.service';
     HttpClientModule
   ],
   providers: [GetDataService],
-  entryComponents: [ErrorDisplayComponent],
+  entryComponents: [ErrorDisplayComponent, SearchDisplayComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
