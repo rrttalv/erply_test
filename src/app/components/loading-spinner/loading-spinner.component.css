@@ -35,7 +35,7 @@
 }
 #wrapper{
     display: block;
-    /* justify-content: center; */
     width: 100%;
     text-align: center;
+    padding: 2rem 0;
 }

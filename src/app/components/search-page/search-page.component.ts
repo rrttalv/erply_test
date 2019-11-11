@@ -21,12 +21,13 @@ export class SearchPageComponent implements OnInit {
   }
 
   submitSearch(form){
-    this.loading = true;
     var value = form.companyVAT;
     /* Check if the search result component is already in use */
     if(this.searchResult && this.searchResult['Valid']){
       this.archiveSearch(this.searchResult);
+      this.resultComponent.destroy();
     }
+    this.loading = true;
     /* Get data from API */
     this.search.getCompanyInfo(value).subscribe( searchData => {
       if(searchData){
@@ -39,9 +40,6 @@ export class SearchPageComponent implements OnInit {
 
   /* Create a component that displays the result and inject into template */
   displaySearch(){
-    if(this.resultComponent){
-      this.resultComponent.destroy();
-    }
     const factory = this.factory.resolveComponentFactory(SearchDisplayComponent);
     this.resultComponent = this.resultCont.createComponent(factory);
     if(this.searchResult['Valid']){
