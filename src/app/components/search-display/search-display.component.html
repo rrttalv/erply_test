@@ -1,4 +1,4 @@
-<section *ngIf="isValid" class="panel">
+<section [@fadeIn]="'in'" *ngIf="isValid" class="panel">
     <div class="panel-header">
         <h3>{{companyName}}</h3>
     </div>
@@ -19,7 +19,7 @@
         <span>View company on google maps</span>
     </div>
 </section>
-<section *ngIf="!isValid" id="error-panel" class="panel">
+<section [@fadeIn]="'in'" *ngIf="!isValid" id="error-panel" class="panel">
     <div class="panel-body">
         <div class="request-info">
         </div>

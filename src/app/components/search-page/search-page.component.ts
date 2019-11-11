@@ -2,11 +2,23 @@ import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChil
 import { SearchDisplayComponent } from '../search-display/search-display.component';
 import { ArchivedSearchDisplayComponent } from '../archived-search-display/archived-search-display.component';
 import { GetDataService } from '../../services/get-data.service';
+import { trigger, transition, state, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
-  styleUrls: ['./search-page.component.css']
+  styleUrls: ['./search-page.component.css'],
+  animations: [
+    trigger('fadeIn', [
+      state('in', style({opacity: 1})),
+      transition(':enter', [
+        style({opacity: 0}),
+        animate(1500 )
+      ]),
+      transition(':leave',
+        animate(1500, style({opacity: 0})))
+    ])
+  ]
 })
 export class SearchPageComponent implements OnInit {
   searchResult: Object;
