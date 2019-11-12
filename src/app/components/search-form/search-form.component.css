@@ -32,7 +32,7 @@ form{
     justify-content: center;
     align-items: center;
     height: 3rem;
-    background: #1abc9c;
+    background: rgb(26, 188, 156);
     border-radius: 0.75rem;
     margin: 0 1%;
 }
